@@ -2,7 +2,7 @@
 layout: home
 title: Jocoos Dev-book
 permalink: /
-cover: /devbook/assets/cover_yellow.jpg
+cover: /dev-book/assets/cover_yellow.jpg
 ---
 
 > ##### About
