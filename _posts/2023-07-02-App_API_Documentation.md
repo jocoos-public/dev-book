@@ -6,7 +6,7 @@ category: Jekyll
 layout: post
 tags: [Mermaid]
 mermaid: true
-cover: /devbook/assets/cover_yellow.jpg
+cover: /dev-book/assets/cover_yellow.jpg
 ---
 
 -------------
