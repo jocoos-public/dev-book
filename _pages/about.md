@@ -1,0 +1,41 @@
+---
+title: Θ About Services
+author: Dan Lee
+date: 1900-01-01
+category: Jekyll
+layout: post
+cover: /devbook/assets/cover_yellow.jpg
+---
+
+
+> ##### About Services
+>
+> This site is for jocoos customers for develop service.
+{: .block-tip }
+
+## let's find out the right service for you
+
+```yaml
+flipflop:
+    enabled: true
+    for_straming: true
+    for_classic_architecture: true
+    is_standalone_service: true
+```
+
+```yaml
+flipflop-lite:
+    enabled: true
+    for_streaming: true
+    for_make_cms_easily: true
+    is_standalone_service: false
+```
+
+
+> ##### Contact
+>
+> Feel free let me know if you have curious things. support@jocoos.com
+{: .block-tip }
+
+-------------
+Copyright 2023 @ Jocoos.
