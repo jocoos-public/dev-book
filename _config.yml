@@ -11,7 +11,7 @@ gitbook_version:  3.2.3
 
 url:              'https://jocoos-public.github.io'
 # baseurl:          '/jekyll-gitbook'
-baseurl:          '/devbook'
+baseurl:          '/dev-book'
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
