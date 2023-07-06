@@ -4,7 +4,7 @@ author: Dan Lee
 date: 1900-01-01
 category: Jekyll
 layout: post
-cover: /devbook/assets/cover_yellow.jpg
+cover: /dev-book/assets/cover_yellow.jpg
 ---
 
 
