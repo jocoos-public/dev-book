@@ -10,6 +10,8 @@ cover: /dev-book/assets/cover_yellow.jpg
 > This site is for jocoos customers of develop service.
 {: .block-tip }
 
+[DEV-Book Page](https://jocoos-public.github.io/dev-book/)
+
 > ##### Contact
 >
 > Feel free let me know if you have curious things. support@jocoos.com
