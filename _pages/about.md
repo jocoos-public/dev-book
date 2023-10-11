@@ -34,7 +34,7 @@ flipflop-lite:
 
 > ##### Contact
 >
-> Feel free let me know if you have curious things. support@jocoos.com
+> Feel free to let me know if you have curious things. support@jocoos.com
 {: .block-tip }
 
 -------------
