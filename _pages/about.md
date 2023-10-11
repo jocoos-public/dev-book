@@ -10,7 +10,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 
 > ##### About Services
 >
-> This site is for jocoos customers for develop service.
+> This site is intended for Jocoos customers to develop their services.
 {: .block-tip }
 
 ## let's find out the right service for you
@@ -34,7 +34,7 @@ flipflop-lite:
 
 > ##### Contact
 >
-> Feel free let me know if you have curious things. support@jocoos.com
+> Feel free to let me know if you have curious things. support@jocoos.com
 {: .block-tip }
 
 -------------
