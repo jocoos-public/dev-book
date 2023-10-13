@@ -7,14 +7,14 @@ cover: /dev-book/assets/cover_yellow.jpg
 
 > ##### About
 >
-> This site is for jocoos customers of develop service.
+> This site is intended for Jocoos customers to develop their services.
 {: .block-tip }
 
 [DEV-Book Page](https://jocoos-public.github.io/dev-book/)
 
 > ##### Contact
 >
-> Feel free let me know if you have curious things. support@jocoos.com
+> Feel free to let me know if you have curious things. support@jocoos.com
 {: .block-tip }
 
 -------------
