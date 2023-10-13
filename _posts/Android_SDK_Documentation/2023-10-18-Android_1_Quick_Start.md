@@ -1,7 +1,7 @@
 ---
-title: Ξ [Android] 0. Quick Start
+title: Ξ [Android] 1. Quick Start
 author: Soonhyung Hwang
-date: 2023-10-10
+date: 2023-10-18
 category: Jekyll
 layout: post
 cover: /dev-book/assets/cover_yellow.jpg
