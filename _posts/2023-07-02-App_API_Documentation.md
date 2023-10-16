@@ -1,5 +1,5 @@
 ---
-title: Θ App API Documentation (FFLv2)
+title: Θ App REST API Documentation (FFLv2)
 author: Dan Lee, TaeHyeong Lee
 date: 2023-10-16
 category: Jekyll
@@ -28,7 +28,7 @@ This document contains specifications of the FlipFlop Lite v2 App API. Calling A
 
 All error response is provided with the following JSON body format along with the HTTP Status Code.
 
-```json
+```
 {
     "errorCode": "EMPTY_CLIENT_CREDENTIALS",
     "errorMessage": "'Authorization: Basic' header is empty."
@@ -51,7 +51,7 @@ The following are common error code in response to All API request.
 
 Response for APIs querying for object list have the following pagination structure format.
 
-```json
+```
 {
     "content": [arrayOfObject],
     "pageable": {

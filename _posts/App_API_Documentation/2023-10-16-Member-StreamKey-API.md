@@ -38,9 +38,9 @@ This series of App API is related to member’s stream key. The member who would
 
   * Gets the StreamKey of a specific Member.
   
-```javascript
+```json
 curl -i -X GET \
-   -u "{app.apiKey}:{app.apiSecret}" \
+   -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
  '{api-base-url}/v2/members/me/stream-key'
 

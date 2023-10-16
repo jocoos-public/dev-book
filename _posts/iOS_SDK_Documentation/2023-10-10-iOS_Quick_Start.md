@@ -16,7 +16,7 @@ cover: /dev-book/assets/cover_yellow.jpg
    2. Creating Application
       1. To use the SDK, you must first sign up for a membership in the user console on the web and then create an application. Direct membership is currently limited. If you would like to sign up, please contact Jocoos.
    3. Getting Access Token from FlipFlop Lite Server
-      1. To send and view live via the SDK, you need to get an access token from the server(due to security issues, the SDK does not provide a way to get an access token directly). You will need to implement your own server to get an access token using the FlipFlop Lite API and then drop it to the client app. For more information on using the API, see the [FlipFlop Lite API](https://jocoos-public.github.io/dev-book/jekyll/2023-07-02-Member_App_API.html) documentation.
+      1. To send and view live via the SDK, you need to get an access token from the server(due to security issues, the SDK does not provide a way to get an access token directly). You will need to implement your own server to get an access token using the FlipFlop Lite API and then drop it to the client app. For more information on using the API, see the [FlipFlop Lite - Member Get VideoRooms API](https://jocoos-public.github.io/dev-book/jekyll/2023-10-16-Member-VideoRoom-API.html#get-videorooms) documentation.
 
 2. Installing SDK
 
@@ -133,7 +133,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 5. Watching Live
 
-   1. As a prelude to live viewing, you will need the following four values The access token can be obtained through the application server as described in section 1.3 above. The remaining items can be obtained through FlipFlop Lite's [Video List API](https://jocoos-public.github.io/dev-book/jekyll/2023-07-02-VideoRoom_App_API.html). These values are also not provided directly by the SDK, so like the access token, they must be obtained directly through the application server and passed to the client for use.
+   1. As a prelude to live viewing, you will need the following four values The access token can be obtained through the application server as described in section 1.3 above. The remaining items can be obtained through FlipFlop Lite's [FlipFlop Lite - Member Get VideoRooms API](https://jocoos-public.github.io/dev-book/jekyll/2023-10-16-Member-VideoRoom-API.html#get-videorooms). These values are also not provided directly by the SDK, so like the access token, they must be obtained directly through the application server and passed to the client for use.
 
       1. access token, video room Id, channel Id, live url
 

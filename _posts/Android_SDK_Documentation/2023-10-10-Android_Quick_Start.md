@@ -20,7 +20,7 @@ cover: /dev-book/assets/cover_yellow.jpg
    3. Getting access token from server
 
       * You need an access token to use the SDK. The application server uses the FlipFlop Lite API to get an access token and passes it to the client
-      *  For more information on using the API, refer the [FlipFlop Lite API](https://jocoos-public.github.io/dev-book/jekyll/2023-07-02-Member_App_API.html) documentation.
+      *  For more information on using the API, refer the [FlipFlop Lite - Member Login API](https://jocoos-public.github.io/dev-book/jekyll/2023-10-16-App-Member-API.html#member-login) documentation.
 2. Installing SDK
    1. Add the code below to build.gradle in the root of your project.
 
