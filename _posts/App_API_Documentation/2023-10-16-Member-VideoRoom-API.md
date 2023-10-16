@@ -71,7 +71,7 @@ This series of Member API is related to VideoRoom. VideoRoom is virtual room whe
 
   * Start RTMP Ingest with `{ingestUrl}/{streamKey}?mode=CMAF` using the streamKey owned by the host. (A host can only send one broadcast at a time.) In `OBS Studio`, configure as follows.
 
-```javascript
+```json
 OBS Studio → Settings → Stream
 - Service: [Custom...]
 - Server: {ingestUrl}
@@ -80,9 +80,9 @@ OBS Studio → Settings → Stream
 ```
 
   * You can add a `mode` parameter to the Stream Key as a QueryString to set the output mode. If you set it to `CMAF`, which is the default when omitted, you can stably broadcast to a large number of viewers with a delay of 5-6 seconds, and you can also watch it on a web browser. If set to `RTMP`, low-latency broadcasting with a delay of 2-3 seconds is possible, but it cannot be viewed on a web browser.
-  * When the host executes [Start VideoRoom RTMP Broadcast](#Start-VideoRoom-RTMP-Broadcast) for a VideoRoom with videoRoomState = `SCHEDULED`, the broadcast address is revealed to the broadcast viewers via the `playUrl` field. (The media service must allow the stream to reach CMAF Publish status before it is allowed to start broadcasting.)
+  * When the host executes [Start VideoRoom RTMP Broadcast](#start-videoroom-rtmp-broadcast) for a VideoRoom with videoRoomState = `SCHEDULED`, the broadcast address is revealed to the broadcast viewers via the `playUrl` field. (The media service must allow the stream to reach CMAF Publish status before it is allowed to start broadcasting.)
   * Viewers watch the broadcast by adding `?streamingToken={streamingToken}` as a QueryString to the publicly available `playUrl` address to convey the broadcast viewing rights granted to them. (The `streamingToken` is unique to each viewer and is issued upon member login).
-  * When the host executes [End VideoRoom RTMP Broadcast](#End-VideoRoom-RTMP-Broadcast), the broadcast ends and the `playUrl` field is initialized.
+  * When the host executes [End VideoRoom RTMP Broadcast](#end-videoroom-rtmp-broadcast), the broadcast ends and the `playUrl` field is initialized.
 
 <a name="Create-VideoRoom"></a>
 ## Create a VideoRoom
@@ -91,7 +91,7 @@ OBS Studio → Settings → Stream
 
   * Creates a VideoRoom.
 
-```javascript
+```json
 curl -i -X POST \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -168,11 +168,11 @@ curl -i -X POST \
 | `type` | Required | [Enum:VideoRoomType] Video room type | BROADCAST_RTMP, VIDEO_CONFERENCE, WEBINAR, VIDEO_SURVEILLANCE |
 | `title` | Optional | [String] Title | |
 | `description` | Optional | [String] Description | |
-| `scheduledAt` | Conditionally required | [iso8601] Scheduled date and time | required only for type = `BROADCAST_RTMP` |
+| `scheduledAt` | Conditionally Required | [iso8601] Scheduled date and time | required only for type = `BROADCAST_RTMP` |
 | `password` | Optional | [String] VideoRoom entry password | used only for type = `VIDEO_CONFERENCE`, `WEBINAR`, `VIDEO_SURVEILLANCE` |
 
 ### Response parameters
-  * See [Get VideoRoom](#Get-VideoRoom)
+  * See [Get VideoRoom](#get-videoroom)
 
 ### Error Code
 
@@ -193,7 +193,7 @@ curl -i -X POST \
 
   * Gets the list of VideoRoom created by the logged-in member.
 
-```javascript
+```json
 curl -i -X GET \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -289,8 +289,8 @@ curl -i -X GET \
 
 | Parameter Name | Required/Optional Status | Description | Remarks |
 | --- | --- | --- | --- |
-| `videoRoomState` | Optional | [Enum:VideoRoomState] state | See [VideoRoom State](#VideoRoom-State) |
-| `type` | Optional | [Enum:VideoRoomType] type | See [VideoRoom Type](#VideoRoom-Type) |
+| `videoRoomState` | Optional | [Enum:VideoRoomState] state | See [VideoRoom State](#videoroom-state) |
+| `type` | Optional | [Enum:VideoRoomType] type | See [VideoRoom Type](#videoroom-type) |
 | `sortBy` | Optional | [String] sort by | `CREATED_AT_ASC`, `CREATED_AT_DESC`, `LAST_MODIFIED_AT_ASC`, `LAST_MODIFIED_AT_DESC` |
 | `page` | Optional | [Int] page number | |
 | `pageSize` | Optional | [Int] page size | |
@@ -299,7 +299,7 @@ curl -i -X GET \
 
 | Parameter Name | Description | Remarks |
 | --- | --- | --- | --- |
-| content`[]` | [arrayOfObject] VideoRoom list | See [Get VideoRoom](#Get-VideoRoom) |
+| content`[]` | [arrayOfObject] VideoRoom list | See [Get VideoRoom](#get-videoroom) |
 
 <a name="Get-VideoRoom"></a>
 ## Get VideoRoom
@@ -308,7 +308,7 @@ curl -i -X GET \
 
   * Get a specific VideoRoom.
 
-```javascript
+```json
 curl -i -X GET \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -445,7 +445,7 @@ curl -i -X GET \
 
   * Retrieves a specific VideoRoom by UUID.
 
-```javascript
+```json
 curl -i -X GET \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -510,7 +510,7 @@ curl -i -X GET \
 ```
 
 ### Response Parameters
-  * See [Get VideoRoom](#Get-VideoRoom).
+  * See [Get VideoRoom](#get-videoroom).
 
 ### Error Code
 
@@ -527,7 +527,7 @@ curl -i -X GET \
   * Note that if you stop and resume RTMP Ingest after starting the broadcast, you do not need to explicitly run this API again. If you stop RTMP Ingest after starting the broadcast, videoRoomState = LIVE -> LIVE_INACTIVE, and it will automatically change to LIVE_INACTIVE -> LIVE when you resume RTMP Ingest.
   * Change VideoRoom's videoRoomState = `LIVE` and StreamKey's state = `ACTIVE_LIVE` and save VideoRoom information in StreamKey.
 
-```javascript
+```json
 curl -i -X POST \
    -u "{app.apiKey}:{app.apiSecret}" \
    -H "Content-Type:application/json" \
@@ -587,7 +587,7 @@ curl -i -X POST \
 ```
 
 ### Response Parameters
-  * See [Get VideoRoom](#Get-VideoRoom).
+  * See [Get VideoRoom](#get-videoroom).
 
 ### Error Code
 
@@ -610,7 +610,7 @@ curl -i -X POST \
   * Note that ending the broadcast is not allowed if RTMP Ingest is currently in progress. RTMP Ingest of the StreamKey mapped to the VideoRoom must be stopped first.
   * Change the VideoRoom's videoRoomState = `ENDED` and the StreamKey's state = `INACTIVE`, and delete the VideoRoom information stored in the StreamKey.
 
-```javascript
+```json
 curl -i -X POST \
    -u "{app.apiKey}:{app.apiSecret}" \
    -H "Content-Type:application/json" \
@@ -666,7 +666,7 @@ curl -i -X POST \
 ```
 
 ### Response Parameters
-  * See [Get VideoRoom](#Get-VideoRoom).
+  * See [Get VideoRoom](#get-videoroom).
 
 ### Error Code
 
@@ -688,7 +688,7 @@ curl -i -X POST \
   * If a member watching the broadcast creates and maintains a **Server-Sent Events** connection with the **Get Member EventSource API**, they will be notified in real-time via message **PUB-SUB** when the state of their **VideoRoom** changes over the course of the broadcast. (As a prerequisite, you must be joined to the channel mapped to that **VideoRoom**).
   * If the **App Callback API** passes this information to the backend server of the **App**, this method has the advantage that it can be delivered directly to the **n** broadcast viewing members running the client. (Instead of polling for **VideoRoom** views on the client side, they can be notified in real time and processed.) In particular, since the **playUrl** changes when the broadcast resumes after a pause, it is advantageous to pass the relevant information to the viewing members immediately.
 
-```javascript
+```json
 # Create and maintain an EventSource connection
 curl -N --http2 \
     -H "Accept:text/event-stream" \
