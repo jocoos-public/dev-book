@@ -55,7 +55,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 
       ```kotlin
       dependencies {
-        implementation(‘com.jocoos.jocoos-public:ff-lite-android-sdk:1.3.5’) {
+        implementation(‘com.jocoos.jocoos-public:ff-lite-android-sdk:1.3.7’) {
           transitive = true
         }
       }
