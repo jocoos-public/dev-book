@@ -71,7 +71,7 @@ This series of Member API is related to VideoRoom. VideoRoom is virtual room whe
 
   * Start RTMP Ingest with `{ingestUrl}/{streamKey}?mode=CMAF` using the streamKey owned by the host. (A host can only send one broadcast at a time.) In `OBS Studio`, configure as follows.
 
-```json
+```
 OBS Studio → Settings → Stream
 - Service: [Custom...]
 - Server: {ingestUrl}
@@ -384,7 +384,7 @@ curl -i -X GET \
 | `vodState` | [Enum:VideoRoomVodState] State | See [VideoRoom VOD State](#VideoRoom-VOD-State) |
 | `vodUrl` | [String?] VideoRoom VOD URL | vodState = 'ARCHIVED' generated on transition |
 | `accessLevel` | [Enum:AccessLevel] Access level | PUBLIC, APP, MEMBER, FRIEND, FOLLOWER, RESTRICTED, PRIVATE |
-| `format` | [Enum:VideoFormat] Video format | CMAF, UNDEFINED |
+| `format` | [Enum:VideoFormat] VideoRoom output format | `UNDEFINED`, `RTMP`, `CMAF`, `RTMP_CMAF` |
 | `app` | [Object] App information | |
 | app.`id` | [Long] App ID | |
 | app.`state` | [Enum:EntityState] App entity state | ACTIVE, DELETED |
@@ -418,10 +418,10 @@ curl -i -X GET \
 | streamKey?.`id` | [Long] StreamKey ID | |
 | streamKey?.`state` | [Enum:EntityState] Entity state | |
 | streamKey?.`streamKeyState` | [Enum:StreamKeyState] StreamKey state | |
-| `playUrl?` | [String] Play URL to watch when the broadcast starts or resumes | |
-| `cmafHlsPlayUrl?` | [String] CMAF-HLS Play URL | activated if mode = `CMAF` or `RTMP_CMAF` |
-| `cmafDashPlayUrl?` | [String] CMAF-DASH Play URL | activated if mode = `CMAF` or `RTMP_CMAF` |
-| `rtmpPlayUrl?` | [String] RTMP Play URL | activated if mode = `RTMP` or `RTMP_CMAF` |
+| `playUrl?` | [String] URL to watch when the broadcast starts or resumes | |
+| `cmafHlsPlayUrl?` | [String] CMAF-HLS Play URL | activated if format = `CMAF` or `RTMP_CMAF` |
+| `cmafDashPlayUrl?` | [String] CMAF-DASH Play URL | activated if format = `CMAF` or `RTMP_CMAF` |
+| `rtmpPlayUrl?` | [String] RTMP Play URL | activated if format = `RTMP` or `RTMP_CMAF` |
 | `videoPost?` | [Object:VideoPostSimpleDTO] Information about a VideoPost that is being recorded or has been completed | |
 | videoPost.`id` | [Long] VideoPost ID | |
 | videoPost.`state` | [Enum:EntityState] VideoPost entity state | ACTIVE, DELETED |
