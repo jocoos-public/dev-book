@@ -91,7 +91,7 @@ OBS Studio → Settings → Stream
 
   * Creates a VideoRoom.
 
-```json
+```
 curl -i -X POST \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -193,7 +193,7 @@ curl -i -X POST \
 
   * Gets the list of VideoRoom created by the logged-in member.
 
-```json
+```
 curl -i -X GET \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -308,7 +308,7 @@ curl -i -X GET \
 
   * Get a specific VideoRoom.
 
-```json
+```
 curl -i -X GET \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -445,7 +445,7 @@ curl -i -X GET \
 
   * Retrieves a specific VideoRoom by UUID.
 
-```json
+```
 curl -i -X GET \
    -H "Authorization:Bearer {member-access-token}" \
    -H "Content-Type:application/json" \
@@ -527,7 +527,7 @@ curl -i -X GET \
   * Note that if you stop and resume RTMP Ingest after starting the broadcast, you do not need to explicitly run this API again. If you stop RTMP Ingest after starting the broadcast, videoRoomState = LIVE -> LIVE_INACTIVE, and it will automatically change to LIVE_INACTIVE -> LIVE when you resume RTMP Ingest.
   * Change VideoRoom's videoRoomState = `LIVE` and StreamKey's state = `ACTIVE_LIVE` and save VideoRoom information in StreamKey.
 
-```json
+```
 curl -i -X POST \
    -u "{app.apiKey}:{app.apiSecret}" \
    -H "Content-Type:application/json" \
@@ -610,7 +610,7 @@ curl -i -X POST \
   * Note that ending the broadcast is not allowed if RTMP Ingest is currently in progress. RTMP Ingest of the StreamKey mapped to the VideoRoom must be stopped first.
   * Change the VideoRoom's videoRoomState = `ENDED` and the StreamKey's state = `INACTIVE`, and delete the VideoRoom information stored in the StreamKey.
 
-```json
+```
 curl -i -X POST \
    -u "{app.apiKey}:{app.apiSecret}" \
    -H "Content-Type:application/json" \
@@ -688,7 +688,7 @@ curl -i -X POST \
   * If a member watching the broadcast creates and maintains a **Server-Sent Events** connection with the **Get Member EventSource API**, they will be notified in real-time via message **PUB-SUB** when the state of their **VideoRoom** changes over the course of the broadcast. (As a prerequisite, you must be joined to the channel mapped to that **VideoRoom**).
   * If the **App Callback API** passes this information to the backend server of the **App**, this method has the advantage that it can be delivered directly to the **n** broadcast viewing members running the client. (Instead of polling for **VideoRoom** views on the client side, they can be notified in real time and processed.) In particular, since the **playUrl** changes when the broadcast resumes after a pause, it is advantageous to pass the relevant information to the viewing members immediately.
 
-```json
+```
 # Create and maintain an EventSource connection
 curl -N --http2 \
     -H "Accept:text/event-stream" \
