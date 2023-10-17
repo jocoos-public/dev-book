@@ -22,7 +22,7 @@ This series of App API is related to synchronizing your member information with 
   * Execute a member login.
   * Answer an `accessToken` with a 24 hour expiration as the result of the request.
 
-```javascript
+```
 curl -i -X POST \
    -u "{app.apiKey}:{app.apiSecret}" \
    -H "Content-Type:application/json" \
@@ -84,7 +84,7 @@ curl -i -X POST \
   * Deletes a member.
   * The target appUserId can be requested multiple times and can be separated by commas, such as `1,2,3`.
 
-```javascript
+```
 curl -i -X DELETE \
    -H "Authorization:Basic {base64of({appApiKey}:{appApiSecret})}" \
  '{api-base-url}/v2/apps/me/members/{appUserIds}'
