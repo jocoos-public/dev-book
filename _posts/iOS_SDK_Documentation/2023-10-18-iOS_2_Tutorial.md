@@ -1,7 +1,7 @@
 ---
-title: Ξ [iOS] 1. Tutorial
+title: Ξ [iOS] 2. Tutorial
 author: Soonhyung Hwang
-date: 2023-10-10
+date: 2023-10-18
 category: Jekyll
 layout: post
 cover: /dev-book/assets/cover_yellow.jpg
