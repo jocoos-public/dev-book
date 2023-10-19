@@ -1,7 +1,7 @@
 ---
 title: Ξ [FlipFlop] FlipFlop SDK Documentation
 author: Soonhyung Hwang
-date: 2023-10-13
+date: 2023-10-19
 category: Jekyll
 layout: post
 tags: [Mermaid]
@@ -20,8 +20,9 @@ live streaming, and webinars.
 
 ## Documentation
 
-- [Dashboard](https://dev.flipflop.tv/docs)
-- [iOS](https://dev.flipflop.tv/docs/ios/introduction)
-- [Android](https://dev.flipflop.tv/docs/android/introduction)
-- [Javascript](https://dev.flipflop.tv/docs/javascript/introduction)
-- [Platform API](https://dev.flipflop.tv/docs/platform_api/introduction)
+- [Dashboard](https://www.flipflop.tv/docs)
+- [iOS](https://www.flipflop.tv/docs/ios/introduction)
+- [Android](https://www.flipflop.tv/docs/android/introduction)
+- [Javascript](https://www.flipflop.tv/docs/javascript/introduction)
+- [Platform API](https://www.flipflop.tv/docs/platform_api/introduction)
+
