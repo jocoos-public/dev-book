@@ -155,3 +155,68 @@ curl -i -X GET \
 | HTTP Status Code | errorCode | Remarks |
 | --- | --- | --- |
 | 404 | `STREAM_KEY_NOT_FOUND` | StreamKey resource does not exist |
+
+<a name="StreamKey-State-Change-App-Callback-API-Notification"></a>
+## StreamKey State Change App Callback API Notification
+
+---
+
+  * If you have registered Callback API information with the app in the User Console, it will notify you by requesting the registered Callback API in the following format when the StreamKey status changes as the streaming progresses. (If the 4XX, 5XX response fails, it will not be requested again.)
+
+```
+curl -i -X POST \
+   -u "{app.callback.accessId}:{app.callback.accessPassword})}" \
+   -H "Content-Type:application/json" \
+   -d \
+'{
+    "type": "STREAM_KEY_ACTIVE_PREP",
+    "data": {
+        "streamKeyId": 1
+        "streamKeyStreamKeyState": "ACTIVE_PREP"
+    }
+}
+' \
+ '{app.callback.url}'
+```
+
+| type | description | remarks |
+| --- | --- | --- |
+| `STREAM_KEY_ACTIVE_PREP` | When the first RTMP Ingest was received before going live | |
+| `STREAM_KEY_ACTIVE_LIVE_PREP` | Time to resume receiving RTMP Ingest that was interrupted while broadcasting | |
+| `STREAM_KEY_ACTIVE` | First CMAF Publish before going live | |
+| `STREAM_KEY_ACTIVE_LIVE` | CMAF Publish resumed when interrupted during broadcast, or when a specific VideoRoom broadcast is started by the streamer | |
+| `STREAM_KEY_INACTIVE_LIVE` | When RTMP Ingest or CMAF Publish was interrupted during broadcast transmission | |
+| `STREAM_KEY_INACTIVE` | When RTMP Ingest or CMAF Publish is stopped before broadcasting, or when a specific VideoRoom broadcast is ended by the streamer | |
+
+<a name="StreamKey-State-Change-Member-EventSource-API-Notification"></a>
+## StreamKey State Change Member EventSource API Notification
+
+---
+
+  * If a member who is a streaming party creates and maintains a **Server-Sent Events** connection with the **Get Member EventSource API**, they will be notified in real-time via message **PUB-SUB** when the **StreamKey** state changes as the stream progresses.
+  * This method has the advantage of passing the information directly to the member parties running the client, whereas the previously described **App Callback API** passes it to the backend server of the **App**. (Rather than polling for **StreamKey** lookups on the client side, they can be notified in real time and handle them).
+
+```
+# create and maintain an EventSource connection
+curl -N --http2 \
+    -H "Authorization:Bearer {member-access-token}" \
+    -H "Accept:text/event-stream" \
+  '{api-base-url}/v2/members/me/event-sources'
+
+# 200 OK
+# send StreamKey change information in real-time while the EventSource connection is maintained in the format below
+{
+  "messageId": "2023-07-06T01:56:10.371964244Z",
+  "sentAt": "2023-07-06T01:56:10.371964244Z",
+  "origin": "SYSTEM",
+  "type": "SIGNAL",
+  "deliveryType": "UNICAST",
+  "customType": "CHANGE_DATA_CAPTURE",
+  "customData": {
+    "type": "STREAM_KEY",
+    "streamKeyId": "1",
+    "streamKeyState": "ACTIVE",
+    "liveUrl": "{url}"
+  }
+}
+```
