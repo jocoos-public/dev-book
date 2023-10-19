@@ -16,7 +16,7 @@ cover: /dev-book/assets/cover_yellow.jpg
    2. Creating Application
       1. To use the SDK, you must first sign up for a membership in the user console on the web and then create an application. Direct membership is currently limited. If you would like to sign up, please contact Jocoos.
    3. Getting Access Token from FlipFlop Lite Server
-      1. To send and view live via the SDK, you need to get an access token from the server(due to security issues, the SDK does not provide a way to get an access token directly). You will need to implement your own server to get an access token using the FlipFlop Lite API and then drop it to the client app. For more information on using the API, see the [FlipFlop Lite - Member Get VideoRooms API](https://jocoos-public.github.io/dev-book/jekyll/2023-10-16-Member-VideoRoom-API.html#get-videorooms) documentation.
+      1. To send and view live via the SDK, you need to get an access token from the server(due to security issues, the SDK does not provide a way to get an access token directly). You will need to implement your own server to get an access token using the FlipFlop Lite API and then drop it to the client app. For more information on using the API, see the [FlipFlop Lite - Member Login API](https://jocoos-public.github.io/dev-book/jekyll/2023-10-16-App-Member-API.html#member-login) documentation.
 
 2. Installing SDK
 
