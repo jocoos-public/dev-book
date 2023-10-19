@@ -680,6 +680,38 @@ curl -i -X POST \
 | 400 | `REQUEST_LOCKED` | If the same request is being processed and re-requested (e.g., end user clicks the same button consecutively), it is recommended to wait for the response of the previously requested processing. |
 | 500 | `MEDIA_SERVICE_INTERNAL_SERVER_ERROR` | Internal media service not working, contact immediately |
 
+<a name="VideoRoom-State-Change-App-Callback-API-Notification"></a>
+## VideoRoom State Change App Callback API Notification
+
+---
+
+  * If you have registered Callback API information with the app in the User Console, when the VideoRoom.videoRoomState changes as the streaming progresses, it will notify you by requesting the registered Callback API in the format below. (If the 4XX, 5XX response fails, it will not be requested again.)
+
+```
+curl -i -X POST \
+   -u "{app.callback.accessId}:{app.callback.accessPassword})}" \
+   -H "Content-Type:application/json" \
+   -d \
+'{
+    "type": "VIDEO_ROOM_LIVE",
+    "data": {
+        "videoRoomId": 1
+        "videoRoomVideoRoomState": "LIVE"
+    }
+}
+' \
+ '{app.callback.url}'
+```
+
+| type | description | remarks |
+| --- | --- | --- |
+| `VIDEO_ROOM_SCHEDULED` | When the VideoRoom was created by the streamer | |
+| `VIDEO_ROOM_LIVE` | When a broadcast is started or resumed by the streamer | |
+| `VIDEO_ROOM_LIVE_INACTIVE` | When a broadcast was interrupted while broadcasting | |
+| `VIDEO_ROOM_ENDED` | When the broadcast was ended by the streamer | |
+| `VIDEO_ROOM_ARCHIVED` | When a VOD recording is created after the broadcast is ended | |
+| `VIDEO_ROOM_FAILED_ARCHIVING` | Failed to create VOD recording after ending broadcasting | |
+
 <a name="VideoRoom-State-Change-Member-EventSource-API-Notification"></a>
 ## VideoRoom State Change Member EventSource API Notification
 
