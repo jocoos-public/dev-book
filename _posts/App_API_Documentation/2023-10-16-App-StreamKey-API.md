@@ -26,7 +26,7 @@ This document introduces the StreamKey-related App API that can be call on the s
 ```
 curl -i -X POST \
    -H "Authorization:Basic {base64of({appApiKey}:{appApiSecret})}" \
- '{api-base-url}/v2/apps/stream-keys/{streamKey.id}/force-terminate'
+ '{api-base-url}/v2/apps/me/stream-keys/{streamKey.id}/force-terminate'
 
 # 204 No Content
 ```
