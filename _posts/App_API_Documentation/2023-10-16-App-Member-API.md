@@ -1,7 +1,7 @@
 ---
 title: Ξ [Server Side] App Member API
 author: Dan Lee, Taehyeong Lee
-date: 2023-10-16
+date: 2023-11-02
 category: Jekyll
 layout: post
 cover: /dev-book/assets/cover_yellow.jpg
@@ -91,3 +91,29 @@ curl -i -X DELETE \
 
 # 204 No Content
 ```
+
+<a name="Force-Terminate-Member-StreamKey"></a>
+## Force Terminate Member StreamKey
+
+---
+
+  * Forcefully terminates the ongoing RTMP ingestion of a specific member. (ex: when streaming harmful content)
+  * Upon successful response, streamKeyState is updated to `INACTIVE` and the streamKey value is reissued. If there is a VideoRoom being broadcast, videoRoomState is updated to `ENDED` and the VOD result is not saved.
+  * If StreamKey is not in the process of RTMP ingestion, it responds with a success response without a separate error response and does not take any action.
+
+```
+curl -i -X POST \
+   -H "Authorization:Basic {base64of({appApiKey}:{appApiSecret})}" \
+ '{api-base-url}/v2/apps/me/members/{appUserId}/stream-key/force-terminate'
+
+# 204 No Content
+```
+
+### Error Code
+
+| HTTP Status Code | errorCode | Remarks |
+| --- | --- | --- |
+| 404 | `MEMBER_NOT_FOUND` | Member resource does not exist. |
+| 404 | `STREAM_KEY_NOT_FOUND` | StreamKey resource does not exist. |
+| 400 | `REQUEST_LOCKED` | This occurs when a request is already in progress, but a duplicate request is made immediately. |
+| 500 | `MEDIA_SERVICE_INTERNAL_SERVER_ERROR` | This occurs when there is a problem with the internal media service, please contact us immediately. |
