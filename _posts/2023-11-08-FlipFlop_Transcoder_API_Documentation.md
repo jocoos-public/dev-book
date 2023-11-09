@@ -1,5 +1,5 @@
 ---
-title: Ξ Flipflop Transcoder Documentation
+title: Θ Flipflop Transcoder Documentation
 author: Tekhun, Jeong
 date: 2023-11-08
 category: Jekyll
