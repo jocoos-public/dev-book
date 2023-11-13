@@ -1,7 +1,7 @@
 ---
 title: Ξ [Server Side] App StreamKey API
 author: Dan Lee, Taehyeong Lee
-date: 2023-11-02
+date: 2023-10-16
 category: Jekyll
 layout: post
 cover: /dev-book/assets/cover_yellow.jpg
@@ -38,3 +38,5 @@ curl -i -X POST \
 | 404 | `STREAM_KEY_NOT_FOUND` | StreamKey resource does not exist. |
 | 400 | `REQUEST_LOCKED` | This occurs when a request is already in progress, but a duplicate request is made immediately. |
 | 500 | `MEDIA_SERVICE_INTERNAL_SERVER_ERROR` | This occurs when there is a problem with the internal media service, please contact us immediately. |
+
+updated at 02/11/2023

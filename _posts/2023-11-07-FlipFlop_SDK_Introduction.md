@@ -1,7 +1,7 @@
 ---
-title: Ξ [FlipFlop] FlipFlop SDK Documentation
+title: Θ  [FlipFlop] FlipFlop SDK Documentation
 author: Soonhyung Hwang
-date: 2023-10-19
+date: 2023-11-07
 category: Jekyll
 layout: post
 tags: [Mermaid]
