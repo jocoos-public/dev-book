@@ -1,7 +1,7 @@
 ---
-title: Ξ [Android] 0. Quick Start
+title: Ξ [Android] 1. Quick Start
 author: Soonhyung Hwang
-date: 2023-10-10
+date: 2023-10-18
 category: Jekyll
 layout: post
 cover: /dev-book/assets/cover_yellow.jpg
@@ -20,7 +20,7 @@ cover: /dev-book/assets/cover_yellow.jpg
    3. Getting access token from server
 
       * You need an access token to use the SDK. The application server uses the FlipFlop Lite API to get an access token and passes it to the client
-      *  For more information on using the API, refer the [FlipFlop Lite API](https://jocoos-public.github.io/dev-book/jekyll/2023-07-02-Member_App_API.html) documentation.
+      *  For more information on using the API, refer the [FlipFlop Lite - Member Login API](https://jocoos-public.github.io/dev-book/jekyll/2023-10-16-App-Member-API.html#member-login) documentation.
 2. Installing SDK
    1. Add the code below to build.gradle in the root of your project.
 
@@ -36,7 +36,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 
       ```kotlin
       dependencies {
-        implementation(‘com.jocoos.jocoos-public:ff-lite-android-sdk:1.3.5’) {
+        implementation(‘com.jocoos.jocoos-public:ff-lite-android-sdk:1.3.10’) {
           transitive = true
         }
       }

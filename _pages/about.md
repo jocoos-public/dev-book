@@ -17,7 +17,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 
 ```yaml
 flipflop:
-    enabled: true
+    enabled: only_for_private
     for_straming: true
     for_classic_architecture: true
     is_standalone_service: true
@@ -25,7 +25,7 @@ flipflop:
 
 ```yaml
 flipflop-lite:
-    enabled: true
+    enabled: true_for_next_generation
     for_streaming: true
     for_make_cms_easily: true
     is_standalone_service: false

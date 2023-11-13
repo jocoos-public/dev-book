@@ -1,7 +1,7 @@
 ---
-title: Θ App API Documentation (FFLv2)
-author: Dan Lee
-date: 2023-07-02
+title: Θ App REST API Documentation (FFLv2)
+author: Dan Lee, TaeHyeong Lee
+date: 2023-10-16
 category: Jekyll
 layout: post
 tags: [Mermaid]
@@ -28,7 +28,7 @@ This document contains specifications of the FlipFlop Lite v2 App API. Calling A
 
 All error response is provided with the following JSON body format along with the HTTP Status Code.
 
-```json
+```
 {
     "errorCode": "EMPTY_CLIENT_CREDENTIALS",
     "errorMessage": "'Authorization: Basic' header is empty."
@@ -51,7 +51,7 @@ The following are common error code in response to All API request.
 
 Response for APIs querying for object list have the following pagination structure format.
 
-```json
+```
 {
     "content": [arrayOfObject],
     "pageable": {
@@ -94,17 +94,9 @@ Response for APIs querying for object list have the following pagination structu
 | empty | [Boolean] Whether the current page is empty |  |
 
 ## APIs
-
-[**Member App API**](2023-07-02-Member_App_API.html)
-
-[Member StreamKey App API](2023-07-02-Member_StreamKey_App_API.html)
-
-[Streaming Token App API](2023-07-02-Streaming_Token_App_API.html)
-
-[StreamKey App API](2023-07-02-StreamKey_App_API.html)
-
-[VideoRoom App API](2023-07-02-VideoRoom_App_API.html)
-
+  * [Server Side - App Member API](2023-10-16-App-Member-API.html)
+  * [Client Side - Member StreamKey API](2023-10-16-Member-StreamKey-API.html)
+  * [Client Side - Member VideoRoom API](2023-10-16-Member-VideoRoom-API.html)
 
 -------------
 Copyright 2023 @ Jocoos.
