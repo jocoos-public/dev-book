@@ -27,7 +27,7 @@ cover: /dev-book/assets/cover_yellow.jpg
           use_frameworks!
       
           # Pods for FlipFlopLiteSDK
-          pod 'FlipFlopLiteSDK', '1.3.4'
+          pod 'FlipFlopLiteSDK', '1.3.11'
       
       end
 
@@ -35,7 +35,7 @@ cover: /dev-book/assets/cover_yellow.jpg
         installer.pods_project.targets.each do |target|
           target.build_configurations.each do |config|
             config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
           end
         end
       end
