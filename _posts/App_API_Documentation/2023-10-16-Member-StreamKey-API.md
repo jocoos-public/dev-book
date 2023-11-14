@@ -48,6 +48,7 @@ curl -i -X GET \
 {
     "id": 1,
     "streamKeyState": "ACTIVE_LIVE",
+    "forciblyTerminated": false,
     "app": {
         "id": 1,
         "name": "foo-app",
@@ -72,6 +73,7 @@ curl -i -X GET \
     "cmafHlsPlayUrl": "{url}",
     "cmafDashPlayUrl": "{url}",
     "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null,
     "profile": {
         "id": 4,
         "state": "ACTIVE",
@@ -116,6 +118,7 @@ curl -i -X GET \
 | --- | --- | --- |
 | `id` | [Long] StreamKey ID | |
 | `streamKeyState` | [Enum:StreamKeyState] State | INACTIVE, ACTIVE_PREP, ACTIVE, ACTIVE_LIVE_PREP, ACTIVE_LIVE, INACTIVE_LIVE |
+| `forciblyTerminated` | [Boolean] Whether to force RTMP ingestion to stop |
 | `app` | [Object] App information | |
 | app.`id` | [Long] App ID | |
 | app.`state` | [Enum:EntityState] App entity state | ACTIVE, DELETED |
@@ -137,6 +140,7 @@ curl -i -X GET \
 | `cmafHlsPlayUrl?` | [String] CMAF-HLS Play URL | Activated if mode = `CMAF` or `RTMP_CMAF` |
 | `cmafDashPlayUrl?` | [String] CMAF-DASH Play URL |  Activated if mode = `CMAF` or `RTMP_CMAF` |
 | `rtmpPlayUrl?` | [String] RTMP Play URL | Activated if mode = `RTMP`, `RTMP_CMAF` |
+| `httpFlvPlayUrl?` | [String] HTTP-FLV Play URL | Activated if mode = `RTMP`, `RTMP_CMAF` |
 | `profile` | [Object] Broadcast specification information | |
 | profile.`id` | [Long] Profile ID | |
 | profile.`type` | [Enum:VideoTranscodingProfileType] Profile type | `BROADCAST_RTMP` |
