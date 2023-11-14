@@ -114,6 +114,7 @@ curl -i -X POST \
     "type": "VIDEO_CONFERENCE",
     "protocol": "WEB_RTC",
     "videoRoomState": "SCHEDULED",
+    "forciblyTerminated": false,
     "vodState": "NOT_ARCHIVED",
     "vodUrl": null,
     "accessLevel": "PUBLIC",
@@ -155,6 +156,7 @@ curl -i -X POST \
     "cmafHlsPlayUrl": null,
     "cmafDashPlayUrl": null,
     "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null,
     "videoPost": null,
     "createdAt": "2022-10-19T06:41:09.865054Z",
     "lastModifiedAt": "2022-10-19T06:41:09.865054Z"
@@ -209,6 +211,7 @@ curl -i -X GET \
             "type": "VIDEO_CONFERENCE",
             "protocol": "WEB_RTC",
             "videoRoomState": "STARTED",
+            "forciblyTerminated": false,
             "vodState": "NOT_ARCHIVED",
             "vodUrl": null,
             "accessLevel": "PUBLIC",
@@ -252,6 +255,7 @@ curl -i -X GET \
             "cmafHlsPlayUrl": null,
             "cmafDashPlayUrl": null,
             "rtmpPlayUrl": null,
+            "httpFlvPlayUrl": null,
             "videoPost": null,
             "createdAt": "2022-10-19T06:37:59.248305Z",
             "lastModifiedAt": "2022-10-19T06:37:59.248305Z"
@@ -317,11 +321,11 @@ curl -i -X GET \
 # 200 OK
 {
     "id": 1,
-    "state": "ACTIVE",
     "uuid": "{uuid}",
     "type": "VIDEO_CONFERENCE",
     "protocol": "WEB_RTC",
     "videoRoomState": "STARTED",
+    "forciblyTerminated": false,
     "vodState": "NOT_ARCHIVED",
     "vodUrl": null,
     "accessLevel": "PUBLIC",
@@ -365,6 +369,7 @@ curl -i -X GET \
     "cmafHlsPlayUrl": null,
     "cmafDashPlayUrl": null,
     "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null,
     "videoPost": null,
     "createdAt": "2022-10-19T06:41:09.865054Z",
     "lastModifiedAt": "2022-10-19T06:41:09.865056Z"
@@ -376,11 +381,11 @@ curl -i -X GET \
 | Parameter name | Description | Remarks |
 | --- | --- | --- |
 | `id` | [Long] VideoRoom ID | |
-| `state` | [Enum:EntityState] Entity state | ACTIVE, DELETED |
 | `uuid` | [String] VideoRoom UUID | VideoRoom identification string |
 | `type` | [Enum:VideoRoomType] Type | BROADCAST_RTMP, VIDEO_CONFERENCE, WEBINAR, VIDEO_SURVEILLANCE |
 | `protocol` | [String] Protocol used | RTMP, WEB_RTC |
 | `videoRoomState` | [Enum:VideoRoomState] State | See [VideoRoom State](#VideoRoom-State) |
+| `forciblyTerminated` | [Boolean] Whether RTMP ingestion was forced or automatically stopped when VideoRoom ended |
 | `vodState` | [Enum:VideoRoomVodState] State | See [VideoRoom VOD State](#VideoRoom-VOD-State) |
 | `vodUrl` | [String?] VideoRoom VOD URL | vodState = 'ARCHIVED' generated on transition |
 | `accessLevel` | [Enum:AccessLevel] Access level | PUBLIC, APP, MEMBER, FRIEND, FOLLOWER, RESTRICTED, PRIVATE |
@@ -419,9 +424,10 @@ curl -i -X GET \
 | streamKey?.`state` | [Enum:EntityState] Entity state | |
 | streamKey?.`streamKeyState` | [Enum:StreamKeyState] StreamKey state | |
 | `playUrl?` | [String] URL to watch when the broadcast starts or resumes | |
-| `cmafHlsPlayUrl?` | [String] CMAF-HLS Play URL | activated if format = `CMAF` or `RTMP_CMAF` |
-| `cmafDashPlayUrl?` | [String] CMAF-DASH Play URL | activated if format = `CMAF` or `RTMP_CMAF` |
-| `rtmpPlayUrl?` | [String] RTMP Play URL | activated if format = `RTMP` or `RTMP_CMAF` |
+| `cmafHlsPlayUrl?` | [String] CMAF-HLS Play URL | Activated if format = `CMAF` or `RTMP_CMAF` |
+| `cmafDashPlayUrl?` | [String] CMAF-DASH Play URL | Activated if format = `CMAF` or `RTMP_CMAF` |
+| `rtmpPlayUrl?` | [String] RTMP Play URL | Activated if format = `RTMP` or `RTMP_CMAF` |
+| `httpFlvPlayUrl?` | [String] HTTP-FLV Play URL | Activated if format = `RTMP`, `RTMP_CMAF` |
 | `videoPost?` | [Object:VideoPostSimpleDTO] Information about a VideoPost that is being recorded or has been completed | |
 | videoPost.`id` | [Long] VideoPost ID | |
 | videoPost.`state` | [Enum:EntityState] VideoPost entity state | ACTIVE, DELETED |
@@ -459,6 +465,7 @@ curl -i -X GET \
     "type": "VIDEO_CONFERENCE",
     "protocol": "WEB_RTC",
     "videoRoomState": "STARTED",
+    "forciblyTerminated": false,
     "vodState": "NOT_ARCHIVED",
     "vodUrl": null,
     "accessLevel": "PUBLIC",
@@ -503,6 +510,7 @@ curl -i -X GET \
     "cmafHlsPlayUrl": null,
     "cmafDashPlayUrl": null,
     "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null,
     "videoPost": null,
     "createdAt": "2022-10-19T06:41:09.865054Z",
     "lastModifiedAt": "2022-10-19T06:41:09.865056Z"
@@ -541,6 +549,7 @@ curl -i -X POST \
     "type": "BROADCAST_RTMP",
     "protocol": "RTMP",
     "videoRoomState": "LIVE",
+    "forciblyTerminated": false,
     "vodState": "NOT_ARCHIVED",
     "vodUrl": null,
     "type": "BROADCAST_RTMP",
@@ -577,6 +586,7 @@ curl -i -X POST \
     "cmafHlsPlayUrl": {url},
     "cmafDashPlayUrl": {url},
     "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null,
     "videoPost": null,
     "stats": {
         "totalMemberWhitelistCount": 0
@@ -607,7 +617,7 @@ curl -i -X POST \
 ---
 
   * Executes an RTMP broadcast termination for VideoRoom (only available for VideoRoom with type = `BROADCAST_RTMP`).
-  * Note that ending the broadcast is not allowed if RTMP Ingest is currently in progress. RTMP Ingest of the StreamKey mapped to the VideoRoom must be stopped first.
+  * Execution is allowed when videoRoomState = `LIVE`, which is currently broadcasting in the VideoRoom, or `LIVE_INACTIVE`, when the VideoRoom is not currently broadcasting.
   * Change the VideoRoom's videoRoomState = `ENDED` and the StreamKey's state = `INACTIVE`, and delete the VideoRoom information stored in the StreamKey.
 
 ```
@@ -624,6 +634,7 @@ curl -i -X POST \
     "type": "BROADCAST_RTMP",
     "protocol": "RTMP",
     "videoRoomState": "ENDED",
+    "forciblyTerminated": false,
     "vodState": "NOT_ARCHIVED",
     "vodUrl": null,
     "type": "BROADCAST_RTMP",
@@ -656,6 +667,7 @@ curl -i -X POST \
     "cmafHlsPlayUrl": null,
     "cmafDashPlayUrl": null,
     "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null,
     "videoPost": null,
     "stats": {
         "totalMemberWhitelistCount": 0
@@ -743,7 +755,11 @@ curl -N --http2 \
     "type": "VIDEO_ROOM",
     "videoRoomId": "{videoRoom.id}",
     "videoRoomState": "LIVE",
-    "playUrl": "{url}"
+    "playUrl": "{url}",
+    "cmafHlsPlayUrl": "{url}",
+    "cmafDashPlayUrl": "{url}",
+    "rtmpPlayUrl": "{url}",
+    "httpFlvPlayUrl": "{url}"
   }
 }
 
@@ -760,7 +776,11 @@ curl -N --http2 \
     "type": "VIDEO_ROOM",
     "videoRoomId": "{videoRoom.id}",
     "videoRoomState": "LIVE_INACTIVE",
-    "playUrl": null
+    "playUrl": null,
+    "cmafHlsPlayUrl": null,
+    "cmafDashPlayUrl": null,
+    "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null
   }
 }
 
@@ -777,7 +797,11 @@ curl -N --http2 \
     "type": "VIDEO_ROOM",
     "videoRoomId": "{videoRoom.id}",
     "videoRoomState": "LIVE",
-    "playUrl": "{url}"
+    "playUrl": "{url}",
+    "cmafHlsPlayUrl": "{url}",
+    "cmafDashPlayUrl": "{url}",
+    "rtmpPlayUrl": "{url}",
+    "httpFlvPlayUrl": "{url}"
   }
 }
 
@@ -794,7 +818,12 @@ curl -N --http2 \
     "type": "VIDEO_ROOM",
     "videoRoomId": "{videoRoom.id}",
     "videoRoomState": "ENDED",
-    "playUrl": null
+    "forciblyTerminated": false,
+    "playUrl": null,
+    "cmafHlsPlayUrl": null,
+    "cmafDashPlayUrl": null,
+    "rtmpPlayUrl": null,
+    "httpFlvPlayUrl": null
   }
 }
 ```
