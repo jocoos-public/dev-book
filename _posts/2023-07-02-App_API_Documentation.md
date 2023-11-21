@@ -16,11 +16,21 @@ This document contains specifications of the FlipFlop Lite v2 App API. Calling A
 
 ## URLs
 
-| TYPE | URL |
-| --- | --- |
-| User Console | https://console.flipflop.tv/ |
-| API Base URL | https://api.flipflop.tv |
-| RTMP Ingest URL | rtmp://ingest.flipflop.tv/live/{StreamKeyString} |
+### SANDBOX
+
+| Type | Region | URL |
+| --- | --- | --- |
+| User Console | Seoul | https://console-sandbox.lite.flipflop.tv/login |
+| API Base URL | Seoul | https://api-sandbox.lite.flipflop.tv |
+
+### PRODUCTION
+
+| Type | Region | URL |
+| --- | --- | --- |
+| User Console | Seoul | https://console.lite.flipflop.tv/login |
+| API Base URL | Seoul | https://api.lite.flipflop.tv |
+
+  * If you require other regions not listed in this table at production level, please contact support@jocoos.com.
 
 ## API Conventions
 
