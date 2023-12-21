@@ -34,7 +34,7 @@ cover: /dev-book/assets/cover_yellow.jpg
           use_frameworks!
       
           # Pods for FlipFlopSDK
-          pod 'FlipFlopLiteSDK', '1.3.11'
+          pod 'FlipFlopLiteSDK', '1.3.12'
       
       end
 
