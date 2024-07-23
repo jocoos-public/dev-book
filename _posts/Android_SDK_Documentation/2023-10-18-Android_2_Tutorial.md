@@ -55,7 +55,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 
       ```kotlin
       dependencies {
-        implementation(‘com.jocoos.jocoos-public:ff-lite-android-sdk:1.3.10’) {
+        implementation(‘com.jocoos.jocoos-public:ff-lite-android-sdk:1.8.2’) {
           transitive = true
         }
       }
@@ -234,7 +234,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 
    6. Connect an event to receive information that notifies your app during a live broadcast
 
-      * Of the supported events, we'll only connect to the following for this tutorial. For a detailed description of the individual items, see "Handling Events".
+      * Of the supported events, we'll only connect to the following for this tutorial. For a detailed description of the individual items, see "Handling Events" in "3. Core Concepts".
 
         | event | description |
         | --- | --- |

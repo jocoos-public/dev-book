@@ -34,7 +34,7 @@ cover: /dev-book/assets/cover_yellow.jpg
           use_frameworks!
       
           # Pods for FlipFlopSDK
-          pod 'FlipFlopLiteSDK', '1.3.12'
+          pod 'FlipFlopLiteSDK', '1.8.0'
       
       end
 
@@ -176,6 +176,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
           func fflStreamer(_ streamer: FFLStreamer, didChangeVideoBitrate bitrate: Int)
           // camera zoom is changed
           func fflStreamer(_ streamer: FFLStreamer, didChangeZoom zoomFactor: CGFloat)
+          // channel is opened: can send chat messages after this event
+          func fflStreamer(_ streamer: FFLStreamer, didOpenChannel channelId: UInt64)
           // chat message is received
           func fflStreamer(_ streamer: FFLStreamer, didReceive message: FFLMessage)
           // Some error happened
@@ -262,6 +264,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
           
           func fflStreamer(_ streamer: FFLStreamer, didChangeZoom zoomFactor: CGFloat) {
               print("[STREAMER] didChangeZoom: \(zoomFactor)")
+          }
+
+          func fflStreamer(_ streamer: FFLStreamer, didOpenChannel channelId: UInt64) {
+              print("[STREAMER] didOpenChannel: \(channelId)")
           }
           
           func fflStreamer(_ streamer: FFLStreamer, didReceive message: FFLMessage) {
@@ -379,6 +385,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
              func fflLivePlayer(_ livePlayer: FFLLivePlayer, didUpdate playerState: PlayerState)
              // broadcast state is updated
              func fflLivePlayer(_ livePlayer: FFLLivePlayer, didUpdate broadcastState: BroadcastState)
+             // live url is changed
+             func fflLivePlayer(_ livePlayer: FFLLivePlayer, didUpdate liveUrl: String)
+             // channel is opened: can send chat messages after this event
+             func fflLivePlayer(_ livePlayer: FFLLivePlayer, didOpenChannel channelId: UInt64)
              // chat message is received
              func fflLivePlayer(_ livePlayer: FFLLivePlayer, didReceive message: FFLMessage)
              // some errror happened
@@ -412,17 +422,25 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
              func fflLivePlayer(_ livePlayer: FFLLivePlayer, didUpdate playerState: PlayerState) {
                  print("[LIVE PLAYER] didUpdatePlayerState: \(playerState)")
              }
-             
+
              // broadcast state is updated
              func fflLivePlayer(_ livePlayer: FFLLivePlayer, didUpdate broadcastState: BroadcastState) {
                  print("[LIVE PLAYER] didUpdateBroadcastState: \(broadcastState)")
              }
-             
+
+             func fflLivePlayer(_ livePlayer: FFLLivePlayer, didUpdate liveUrl: String) {
+                 print("[LivePlayer] didUpdateLiveUrl: \(liveUrl)")
+             }
+
+             func fflLivePlayer(_ livePlayer: FFLLivePlayer, didOpenChannel channelId: UInt64) {
+                 print("[LivePlayer] didOpenChannel: \(channelId)")
+             }
+
              // chat message is received
              func fflLivePlayer(_ livePlayer: FFLLivePlayer, didReceive message: FFLMessage) {
                  print("[LIVE PLAYER] didReceiveMessage: \(message.message)")
              }
-             
+
              // some errror happened
              func fflLivePlayer(_ livePlayer: FFLLivePlayer, didFail error: FFError) {
                  print("[LIVE PLAYER] didFail: \(error.code) / \(error.message)")

@@ -90,6 +90,7 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 | StreamAlarmPublished | notify about network state in live streaming |
 | CameraZoomChanged | notify that camera zoom has been changed |
 | VideoBitrateChanged | notify that the video bitrate has been changed |
+| ChannelOpened | notify that channel is opened |
 | MessageReceived | notify that a message is received |
 | StreamerError | notify that error happend |
 
@@ -142,6 +143,7 @@ Let's take a closer look at each of these events.
   | ALERT_1 | the state of live streaming is slightly poor |
   | ALERT_2 | live state is worse than alert_1 |
   | ALERT_3 | live state is worse than alert_2 |
+
   * The AlarmState by alarm events currently has three levels, with higher numbers indicating worse conditions.
   * The values of the AlarmState are not called in order: if the network state suddenly goes bad, ALERT_3 might be called first.
 * CameraZoomChanged event
@@ -156,6 +158,8 @@ Let's take a closer look at each of these events.
   // call after prepare()
   streamer?.liveManager()?.enableAdaptiveBitrate()
   ```
+* ChannelOpened event
+  * A chat message will be sent after this event has happened.
 * MessageReceived event
   * For more information, see the "Chat Messages" part.
 * StreamError event
