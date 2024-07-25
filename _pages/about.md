@@ -24,7 +24,7 @@ flipflop:
 ```
 
 ```yaml
-flipflop-lite:
+flipflop-cloud:
     enabled: true_for_next_generation
     for_streaming: true
     for_make_cms_easily: true
