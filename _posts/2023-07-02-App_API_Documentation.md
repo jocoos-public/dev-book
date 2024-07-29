@@ -12,7 +12,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 -------------
 ## Introduction
 
-This document contains specifications of the FlipFlop Lite v2 App API. Calling App API requires API key and secret which is issued when you create an app from the user console.
+This document contains specifications of the FlipFlop Cloud v2 App API. Calling App API requires API key and secret which is issued when you create an app from the user console.
 
 ## URLs
 
@@ -20,15 +20,15 @@ This document contains specifications of the FlipFlop Lite v2 App API. Calling A
 
 | Type | Region | URL |
 | --- | --- | --- |
-| User Console | Seoul | https://console-sandbox.lite.flipflop.tv/login |
-| API Base URL | Seoul | https://api-sandbox.lite.flipflop.tv |
+| User Console | Seoul | https://console-sandbox.flipflop.cloud/login |
+| API Base URL | Seoul | https://api-sandbox.flipflop.cloud |
 
 ### PRODUCTION
 
 | Type | Region | URL |
 | --- | --- | --- |
-| User Console | Seoul | https://console.lite.flipflop.tv/login |
-| API Base URL | Seoul | https://api.lite.flipflop.tv |
+| User Console | Seoul | https://console.flipflop.cloud/login |
+| API Base URL | Seoul | https://api.flipflop.cloud |
 
   * If you require other regions not listed in this table at production level, please contact support@jocoos.com.
 

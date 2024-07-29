@@ -1,5 +1,5 @@
 ---
-title: Θ Getting Started with FlipFlop Lite
+title: Θ Getting Started with FlipFlop Cloud
 author: Dan Lee
 date: 2023-07-01
 category: Jekyll
@@ -12,7 +12,7 @@ cover: /dev-book/assets/cover_yellow.jpg
 -------------
 # Introduction
 
-## What is FlipFlop Lite
+## What is FlipFlop Cloud
 
 Video has emerged as a significant component of the IT industry and a crucial element for businesses. As a result, companies are striving to adopt video technology, not just to keep up with the current trend, but to establish a competitive edge in the market. However, effectively handling video presents numerous challenges. From delivering video content to users in its simplest form to incorporating advanced functionalities like live streaming, expertise in diverse domains such as digital video/audio compression, format specifications, streaming protocols, and computer graphics is required. Moreover, the computational resources necessary for video processing and management come at a substantial cost.
 
