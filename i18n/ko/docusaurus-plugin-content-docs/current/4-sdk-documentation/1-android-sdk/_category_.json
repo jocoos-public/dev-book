@@ -1,0 +1,8 @@
+{
+  "label": "안드로이드 SDK",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "플립플랍 클라우드 앱 안드로이드 클라이언트 SDK."
+  }
+}

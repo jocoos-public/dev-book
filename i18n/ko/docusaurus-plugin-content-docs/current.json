@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Key Concepts": {
+    "message": "주요 개념 상세",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.API Documentation": {
+    "message": "API 문서",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.SDK Documentation": {
+    "message": "SDK 문서",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Android SDK": {
+    "message": "안드로이드 SDK",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.iOS SDK": {
+    "message": "iOS SDK",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  }
+}
