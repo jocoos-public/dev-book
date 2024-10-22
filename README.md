@@ -1,23 +1,41 @@
----
-layout: home
-title: Jocoos Dev-book
-permalink: /
-cover: /dev-book/assets/cover_yellow.jpg
----
+# Website
 
-> ##### About
->
-> This site is intended for Jocoos customers to develop their services.
-{: .block-tip }
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-[DEV-Book - https://jocoos-public.github.io/dev-book/](https://jocoos-public.github.io/dev-book)
+### Installation
 
-[DEV-SDK - https://github.com/jocoos-public](https://github.com/jocoos-public/)
+```shell
+$ yarn
+```
 
-> ##### Contact
->
-> Feel free to let me know if you have curious things. support@jocoos.com
-{: .block-tip }
+### Local Development
 
--------------
-Copyright 2024 @ Jocoos.
+```shell
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```shell
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```shell
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```shell
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
