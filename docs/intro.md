@@ -19,7 +19,7 @@ By adopting FlipFlop Cloud, you can quickly and efficiently build services that 
 
 When using FlipFlop Cloud to integrate video-related features into a service, the first step is to create an abstract `app` in FlipFlop Cloud that corresponds to your service. This `app` manages and provides the video-related features available for that service. If you were to develop video features independently, as shown on the left side of the diagram, you would need to add video functions to your backend server. However, by leveraging FlipFlop Cloud, you replace these independently developed features with those available in FlipFlop Cloud. Since FlipFlop Cloud is a SaaS solution used across various services, an abstract `app` is necessary to distinguish between services.
 
-![Comparison](https://docs.google.com/drawings/d/e/2PACX-1vRa3-KbJtsKVUYhTB8VsjsMWdbF0Iy79hUTAMLq5Vb5SiE413Rz5W5BqNgzWNNXKUBa93J4xVU7a5zD/pub?w=960&h=720)
+![Comparison](/img/flipflop-usage-diagram.png)
 
 As shown on the right side of the diagram, when you implement video features using FlipFlop Cloud, the service backend calls the FlipFlop Cloud app server API according to the business logic of the backend to implement features. On the client side, users can either access FlipFlop Cloud's video features through the service's backend or directly call the FlipFlop Cloud app client API.
 
@@ -54,11 +54,3 @@ As described above, FlipFlop Cloud offers video transcoding, video post sharing,
 - SDK
   - Android SDK
   - iOS SDK
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
