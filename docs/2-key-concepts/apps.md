@@ -12,5 +12,5 @@ FlipFlop Cloud supports the creation of the following types of apps:
 
 - **FlipFlop App**: For services that have a concrete entity and a backend server where video-related features will be implemented.
 - **FlipFlop Portal App**: For cases where there is no concrete service entity, and users want to access video features through the client app provided by FlipFlop.
-- **Bicolo Managed App**: For specific organizations that wish to use comprehensive video conferencing features (including UI) without having a concrete service entity.
-- **Bicolo Unmanaged App**: For services with a concrete entity that want to offer comprehensive video conferencing features (including UI) to their users.
+- **Vicollo Managed App**: For specific organizations that wish to use comprehensive video conferencing features (including UI) without having a concrete service entity.
+- **Vicollo Unmanaged App**: For services with a concrete entity that want to offer comprehensive video conferencing features (including UI) to their users.
