@@ -7,6 +7,10 @@
     "message": "주요 개념 상세",
     "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Quick Start Guide": {
+    "message": "바로 시작해 보기 가이드",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.API Documentation": {
     "message": "API 문서",
     "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
