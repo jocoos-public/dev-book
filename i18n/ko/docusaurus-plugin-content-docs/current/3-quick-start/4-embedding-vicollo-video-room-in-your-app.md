@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # 비콜로 비디오룸 웹앱에서 사용하기
