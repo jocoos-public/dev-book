@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # 라이브 방송 RTMP로 진행하기
@@ -207,7 +207,7 @@ VOD로 전환되는 `비디오 포스트`에 대한 정보는 `비디오룸` 상
 
 ![유저콘솔로 RTMP 방송하기](/img/flipflop-cloud-rtmp-broadcast-with-user-console.png)
 
-하지만 `플립플랍 앱`을 통해 RTMP 방송 기능을 제공하려고 하는 모든 사람들에게 [유저 콘솔](https://console-sandbox.filpflop.cloud)에 대한 접근 권한을 줄 수 없습니다. 따라서 플립플랍 클라우드에서는 API를 제공하여 다음과 같이 사용이 가능하도록 하고 있습니다.
+하지만 `플립플랍 앱`을 통해 비디오 트랜스코딩 기능을 제공하려고 하는 모든 사람들에게 [유저 콘솔](https://console-sandbox.filpflop.cloud)에 대한 접근 권한을 줄 수 없습니다. 따라서 플립플랍 클라우드에서는 API를 제공하여 다음과 같이 사용이 가능하도록 하고 있습니다.
 
 ![API로 RTMP 방송하기](/img/flipflop-cloud-rtmp-broadcast-with-api.png)
 
