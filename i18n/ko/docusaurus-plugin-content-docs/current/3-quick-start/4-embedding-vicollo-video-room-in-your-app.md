@@ -51,7 +51,7 @@ sidebar_position: 4
 
 현재 `비콜로 앱`의 관리 및 운영을 하기 위한 GUI 환경의 어드민 페이지는 개발 중에 있습니다. 따라서 현재는 운영을 API로 해야 합니다. GUI 환경의 어드민 페이지는 빠른 시일내에 사용이 가능하도록 개발하도록 노력 하겠습니다.
 
-API 요청에 사용할 Base URL은 https://api-sandbox.flipflop.cloud 입니다. 요청에 `Authorization` 헤더를 다음과 같이 지정해 줍니다.
+API 요청에 사용할 Base URL은 https://portal-sandbox.flipflop.cloud 입니다. 요청에 `Authorization` 헤더를 다음과 같이 지정해 줍니다.
 
 ```plaintext
 Basic {API key/secret을 ':'를 사이에 둔 문자열을 base64 인코딩한 문자열}

@@ -52,7 +52,7 @@ If you inquired about using Vicollo with your service during the account issuanc
 Currently, the GUI-based admin page for managing and operating the **Vicollo app** is under development. Therefore, operations must currently be performed via the API. We are working to make the GUI admin page available as soon as possible.
 
 The Base URL for making API requests is:
-**https://api-sandbox.flipflop.cloud**
+**https://portal-sandbox.flipflop.cloud**
 
 When making requests, set the `Authorization` header as follows:
 
