@@ -23,8 +23,16 @@
     "message": "안드로이드 SDK",
     "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Android SDK for Vicollo": {
+    "message": "안드로이드 SDK (비콜로앱용)",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.iOS SDK": {
     "message": "iOS SDK",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.iOS SDK for Vicollo": {
+    "message": "iOS SDK (비콜로앱용)",
     "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
   }
 }

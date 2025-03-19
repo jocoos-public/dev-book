@@ -380,24 +380,3 @@ Triggered when a video room is scheduled.
 - Use these events to synchronize your app's state, monitor user activity, and handle video room lifecycle events effectively.
 
 :::
-
-## Testing
-
-An iFrame embedding testing page is provided for your convenience. The URL of the test page is https://static.jocoos.com/vicollo/samples/sandbox.html.
-
-The test page requires the following six values to be provided.
-
-- App Id: Your app’s id
-- Room code: UUID of a video room
-- isObserver: Whether the user should enter the room as observer
-- drawLayoutType: Either fixed-grid or scroll
-- drawLayoutPosition: One of top, bottom, left, right
-- key: Your app user’s access token(result from login)
-
-Fill the appropriate values in the text boxes and press the load iframe by key button to see the Vicollo video room for your user loading inside an iFrame.
-
-The values for the input text boxes can be provided via query params. For example, the following url will use 123, abc, 123abc as app id, room code, and key.
-
-```plaintext
-https://static.jocoos.com/vicollo/samples/sandbox.html?appId={appId}&roomCode={videoRoomUUID}&key={userAccessToken}
-```
