@@ -35,7 +35,7 @@ This document is focused on providing explanations for testing purposes, and all
 
 ## Prerequisites
 
-### 플립플랍 앱 생성
+### Creating a FlipFlop App
 
 All functions in FlipFlop Cloud are executed within the unit of an app. The feature for live broadcasting with RTMP streams is currently only supported in the `FlipFlop App`. It is not yet available in the `Vicollo App`, but support is planned soon.
 
