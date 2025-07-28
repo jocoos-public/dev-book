@@ -24,8 +24,8 @@ FlipFlop Cloud operates separate environments for testing and commercial use, de
 |:---:|:---:|:---:|
 | User Console | https://console-sandbox.flipflop.cloud | https://console.flipflop.cloud |
 | API | https://portal-sandbox.flipflop.cloud | https://portal.flipflop.cloud |
-| Swagger UI | https://portal-sandbox.flipflop.cloud/open-api/ko/swagger-ui/ffc-app-server | https://portal.flipflop.cloud/open-api/ko/swagger-ui/ffc-app-server |
-| API Documentation | https://portal-sandbox.flipflop.cloud/open-api/ko/docs/ffc-app-server | https://portal.flipflop.cloud/open-api/ko/docs/ffc-app-server |
+| Swagger UI | https://portal-sandbox.flipflop.cloud/open-api/en/swagger-ui/ffc-app-server | https://portal.flipflop.cloud/open-api/en/swagger-ui/ffc-app-server |
+| API Documentation | https://portal-sandbox.flipflop.cloud/open-api/en/docs/ffc-app-server | https://portal.flipflop.cloud/open-api/en/docs/ffc-app-server |
 
 :::warning
 
