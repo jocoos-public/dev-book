@@ -127,8 +127,8 @@ Vicollo 앱에 멤버를 등록하고, 해당 멤버가 앱 웹페이지를 통�
 
 API 문서:
 
-* [https://portal.flipflop.cloud/open-api/en/docs/vicollo-app-server](https://portal.flipflop.cloud/open-api/en/docs/vicollo-app-server)
-* [https://portal.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server](https://portal.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server)
+* [API 문서](https://portal.flipflop.cloud/open-api/ko/docs/vicollo-app-server)
+* [Swagger UI](https://portal.flipflop.cloud/open-api/ko/swagger-ui/vicollo-app-server)
 
 앱 생성 시 제공된 API Key/Secret이 필요합니다.
 기록하지 못한 경우 저희에게 문의해주세요.
