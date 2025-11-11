@@ -127,6 +127,12 @@ You will need the API key and secret that were provided when your app was create
 
 **Important:**
 The Server API must be used only from your backend.
+Add the following header in the REST API request
+
+```palintext
+Authorization: Basic {base64 encoded string of 'apiKey:apiSecret'}
+```
+
 Do not expose your API key or secret in frontend code.
 
 The API acts on behalf of the entire app, so ensure proper security checks when forwarding requests from your own users.

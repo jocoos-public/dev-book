@@ -131,6 +131,12 @@ API 문서:
 * [Swagger UI](https://portal.flipflop.cloud/open-api/ko/swagger-ui/vicollo-app-server)
 
 앱 생성 시 제공된 API Key/Secret이 필요합니다.
+REST API 호출시 요청에 다음 헤더를 추가해 주세요
+
+```palintext
+Authorization: Basic {'apiKey:apiSecret'를 base64로 인코딩한 문자열}
+```
+
 기록하지 못한 경우 저희에게 문의해주세요.
 
 **중요:**
