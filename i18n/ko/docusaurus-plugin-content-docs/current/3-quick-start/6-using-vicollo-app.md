@@ -106,6 +106,125 @@ Vicollo 앱에 멤버를 등록하고, 해당 멤버가 앱 웹페이지를 통�
 새 멤버를 추가하려면 **Create** 버튼을 누르고 정보를 입력합니다.
 추가된 멤버는 다른 브라우저(또는 시크릿 모드)에서 로그인하여 테스트할 수 있습니다.
 
+#### 그룹
+
+그룹 기능은 여러 멤버에게 필요한 작업 권한을 묶어서 효율적으로 관리할 수 있도록 해줍니다. 비콜로 앱을 생성하면 기본적으로 아래와 같은 그룹들이 자동으로 만들어집니다.
+
+* ADMINISTRATORS: 앱 관리자가 수행해야 하는 대부분의 권한을 가진 그룹으로, 앱 소유자가 할 수 있는 작업(소유권 변경 등)을 제외한 모든 작업이 가능합니다. 앱 생성 시 최초 멤버가 되는 사용자는 자동으로 이 그룹에 속하게 됩니다.
+* HOSTS: 앱의 소유자는 아니지만, 앱 운영을 주도적으로 담당할 수 있도록 필요한 권한들이 부여된 그룹입니다.
+* MEMBERS: 앱의 일반 사용자들이 기본적으로 가져야 할 권한들이 부여된 그룹입니다.
+* GUESTS: 앱의 정식 멤버는 아니지만, 로그인 없이 임시로 앱을 사용할 수 있도록 제한된 권한이 부여된 그룹입니다.
+
+각 그룹에 부여된 권한은 다음과 같으며 그룹별로 권한 추가 삭제가 가능합니다(현재는 비콜로 앱 서버 API로만 가능).
+
+#### 멤버 관련 권한
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| MEMBER_CREATE_ANY | O | | | |
+| MEMBER_LIST_ANY | O | O | | |
+| MEMBER_LIST_ME | O | O | O | O |
+| MEMBER_GET_ANY | O | O | | |
+| MEMBER_GET_ME | O | O | O | O |
+| MEMBER_UPDATE_ANY | O | | | |
+| MEMBER_UPDATE_ME | O | O | O | O |
+| MEMBER_DELETE_ANY | O | | | |
+
+#### 그룹 관련 권한
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| GROUP_CREATE_ANY | O | | | |
+| GROUP_LIST_ANY | O | O | O | O |
+| GROUP_GET_ANY | O | O | O | O |
+| GROUP_UPDATE_ANY | O | | | |
+| GROUP_DELETE_ANY | O | | | |
+
+#### 비디오룸 관련 권한
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| VIDEO_ROOM_CREATE_ANY | O | O | | |
+| VIDEO_ROOM_LIST_ANY | O | | | |
+| VIDEO_ROOM_LIST_MINE | O | O | O | O |
+| VIDEO_ROOM_LIST_ACCESS_LEVEL_PUBLIC | O | O | O | O |
+| VIDEO_ROOM_LIST_ACCESS_LEVEL_MEMBER | O | O | O | |
+| VIDEO_ROOM_LIST_AS_PRESENT_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_LIST_AS_ALLOWED_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_GET_ANY | O | | | |
+| VIDEO_ROOM_GET_MINE | O | O | O | O |
+| VIDEO_ROOM_GET_ACCESS_LEVEL_PUBLIC | O | O | O | O |
+| VIDEO_ROOM_GET_ACCESS_LEVEL_MEMBER | O | O | O | |
+| VIDEO_ROOM_GET_AS_PRESENT_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_GET_AS_ALLOWED_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_UPDATE_ANY | O | | | |
+| VIDEO_ROOM_UPDATE_MINE | O | O | O | O |
+| VIDEO_ROOM_UPDATE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_UPDATE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | |
+| VIDEO_ROOM_DELETE_ANY | O | | | |
+| VIDEO_ROOM_DELETE_MINE | O | O | O | O |
+
+#### 앱 저장소 관련 권한
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| APP_STORAGE_OBJECT_CREATE_ANY | O | O | | |
+| APP_STORAGE_OBJECT_LIST_ANY | O | O | | |
+| APP_STORAGE_OBJECT_GET_ANY | O | O | | |
+| APP_STORAGE_OBJECT_GET_MINE | O | O | O | |
+| APP_STORAGE_OBJECT_UPDATE_ANY | O | | | |
+| APP_STORAGE_OBJECT_UPDATE_MINE | O | O | O | |
+| APP_STORAGE_OBJECT_DELETE_ANY | O | | | |
+| APP_STORAGE_OBJECT_DELETE_MINE | O | O | O | |
+
+#### 비디오룸 저장소 관련 권한
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_VIDEO_ROOM_OWNER | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_PRESENT_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_ALLOWED_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_VIDEO_ROOM_OWNER | O | O | O | |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_PRESENT_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_ALLOWED_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_VIDEO_ROOM_OWNER | O | O | O | |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_PRESENT_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_ALLOWED_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_AS_VIDEO_ROOM_OWNER | O | O | O | ? |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_MINE | O | O | O | ? |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_AS_VIDEO_ROOM_OWNER | O | O | O | ? |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_MINE | O | O | O | ? |
+
+#### 멤버 저장소 관련 권한
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| MEMBER_STORAGE_OBJECT_CREATE_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_CREATE_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_LIST_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_LIST_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_GET_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_GET_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_UPDATE_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_UPDATE_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_DELETE_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_DELETE_AS_STORAGE_OWNER | O | O | | |
+
 ### 비디오룸 참여하기
 
 다시 **Rooms** 목록으로 이동하여 비디오룸 오른쪽 메뉴에서 **Join Meeting** 을 선택합니다.

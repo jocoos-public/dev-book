@@ -99,6 +99,125 @@ Go to **Members** under **Management**. You will see yourself listed as part of 
 Click **Create** to add a new member. Enter the information and submit.
 You can test login using another browser or incognito mode.
 
+#### Groups
+
+The group feature allows you to efficiently manage permissions by organizing the actions that members can perform into predefined groups. When you create a Bicolo app, the following default groups are automatically generated:
+
+* ADMINISTRATORS: This group holds most of the permissions required for app management, allowing all actions except those reserved for the app owner (such as ownership transfer). The user who creates the app automatically becomes the first member of this group.
+* HOSTS: Although not app owners, members of this group are granted the permissions necessary to take on operational responsibilities within the app.
+* MEMBERS: This group includes the basic permissions intended for regular users of the app.
+* GUESTS: Users in this group are not official app members and cannot log in, but they are granted limited permissions to temporarily use certain app features.
+
+The permissions assigned to each group can be modified(currently only possible via Vicollo App Server API) but initial settings are as follows.
+
+#### Member Related Permissions
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| MEMBER_CREATE_ANY | O | | | |
+| MEMBER_LIST_ANY | O | O | | |
+| MEMBER_LIST_ME | O | O | O | O |
+| MEMBER_GET_ANY | O | O | | |
+| MEMBER_GET_ME | O | O | O | O |
+| MEMBER_UPDATE_ANY | O | | | |
+| MEMBER_UPDATE_ME | O | O | O | O |
+| MEMBER_DELETE_ANY | O | | | |
+
+#### Group Related Permissions
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| GROUP_CREATE_ANY | O | | | |
+| GROUP_LIST_ANY | O | O | O | O |
+| GROUP_GET_ANY | O | O | O | O |
+| GROUP_UPDATE_ANY | O | | | |
+| GROUP_DELETE_ANY | O | | | |
+
+#### VideoRoom Related Permissions
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| VIDEO_ROOM_CREATE_ANY | O | O | | |
+| VIDEO_ROOM_LIST_ANY | O | | | |
+| VIDEO_ROOM_LIST_MINE | O | O | O | O |
+| VIDEO_ROOM_LIST_ACCESS_LEVEL_PUBLIC | O | O | O | O |
+| VIDEO_ROOM_LIST_ACCESS_LEVEL_MEMBER | O | O | O | |
+| VIDEO_ROOM_LIST_AS_PRESENT_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_LIST_AS_ALLOWED_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_GET_ANY | O | | | |
+| VIDEO_ROOM_GET_MINE | O | O | O | O |
+| VIDEO_ROOM_GET_ACCESS_LEVEL_PUBLIC | O | O | O | O |
+| VIDEO_ROOM_GET_ACCESS_LEVEL_MEMBER | O | O | O | |
+| VIDEO_ROOM_GET_AS_PRESENT_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_GET_AS_ALLOWED_PARTICIPANT | O | O | O | O |
+| VIDEO_ROOM_UPDATE_ANY | O | | | |
+| VIDEO_ROOM_UPDATE_MINE | O | O | O | O |
+| VIDEO_ROOM_UPDATE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_UPDATE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | |
+| VIDEO_ROOM_DELETE_ANY | O | | | |
+| VIDEO_ROOM_DELETE_MINE | O | O | O | O |
+
+#### App Storage Related Permissions
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| APP_STORAGE_OBJECT_CREATE_ANY | O | O | | |
+| APP_STORAGE_OBJECT_LIST_ANY | O | O | | |
+| APP_STORAGE_OBJECT_GET_ANY | O | O | | |
+| APP_STORAGE_OBJECT_GET_MINE | O | O | O | |
+| APP_STORAGE_OBJECT_UPDATE_ANY | O | | | |
+| APP_STORAGE_OBJECT_UPDATE_MINE | O | O | O | |
+| APP_STORAGE_OBJECT_DELETE_ANY | O | | | |
+| APP_STORAGE_OBJECT_DELETE_MINE | O | O | O | |
+
+#### VideoRoom Storage Related Permissions
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_VIDEO_ROOM_OWNER | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_PRESENT_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_CREATE_AS_ALLOWED_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_VIDEO_ROOM_OWNER | O | O | O | |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_PRESENT_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_LIST_AS_ALLOWED_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_VIDEO_ROOM_OWNER | O | O | O | |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_PRESENT_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_GET_AS_ALLOWED_PARTICIPANT_CONTRIBUTOR | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_AS_VIDEO_ROOM_OWNER | O | O | O | ? |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_UPDATE_MINE | O | O | O | ? |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_ANY | O | | | |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_AS_VIDEO_ROOM_OWNER | O | O | O | ? |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_AS_PRESENT_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_AS_ALLOWED_PARTICIPANT_HOST | O | O | O | O |
+| VIDEO_ROOM_STORAGE_OBJECT_DELETE_MINE | O | O | O | ? |
+
+#### Member Storage Related Permissions
+
+| PERMISSION | ADMINISTRATORS | HOSTS | MEMBERS | GUESTS |
+|------------|:--------------:|:-----:|:-------:|:------:|
+| MEMBER_STORAGE_OBJECT_CREATE_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_CREATE_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_LIST_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_LIST_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_GET_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_GET_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_UPDATE_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_UPDATE_AS_STORAGE_OWNER | O | O | | |
+| MEMBER_STORAGE_OBJECT_DELETE_ANY | O | | | |
+| MEMBER_STORAGE_OBJECT_DELETE_AS_STORAGE_OWNER | O | O | | |
+
 ### Joining a Video Room
 
 Return to the **Rooms** list, open the menu for a room, and click **Join Meeting**.
