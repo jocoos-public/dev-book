@@ -60,7 +60,9 @@ Vicollo 앱에 멤버를 등록하고, 해당 멤버가 앱 웹페이지를 통�
 4. 필요한 정보를 입력하여 앱 생성
 
 생성 후에는 앱 목록에서 선택하거나 다음 URL로 바로 접근할 수 있습니다:
-`https://vicollo.live/apps/{appId}`
+
+* Sandbox 환경 사용하는 경우: `https://sandbox.vicollo.live/apps/{appId}`
+* Production 환경 사용하는 경우: `https://vicollo.live/apps/{appId}`
 
 앱 생성 시 자동으로 `admin` 계정이 만들어집니다.
 앱 생성 시 입력한 비밀번호가 admin 계정의 비밀번호입니다.
@@ -246,8 +248,8 @@ Vicollo 앱에 멤버를 등록하고, 해당 멤버가 앱 웹페이지를 통�
 
 API 문서:
 
-* [API 문서](https://portal.flipflop.cloud/open-api/ko/docs/vicollo-app-server)
-* [Swagger UI](https://portal.flipflop.cloud/open-api/ko/swagger-ui/vicollo-app-server)
+* [API 문서](https://portal-sandbox.flipflop.cloud/open-api/ko/docs/vicollo-app-server)
+* [Swagger UI](https://portal-sandbox.flipflop.cloud/open-api/ko/swagger-ui/vicollo-app-server)
 
 앱 생성 시 제공된 API Key/Secret이 필요합니다.
 REST API 호출시 요청에 다음 헤더를 추가해 주세요
@@ -263,3 +265,30 @@ Server API는 반드시 백엔드에서만 호출해야 합니다.
 API Key/Secret을 프론트엔드에 노출하면 보안 위험이 발생합니다.
 
 Server API는 앱 전체 권한으로 실행되므로, 멤버 요청을 서버에서 중계할 때 적절한 보안 검증이 필요합니다.
+
+### Vicollo UI를 사용하지 않을 때 멤버용 VideoRoom URL 생성
+
+생성된 비디오룸의 URL 형식은 다음과 같습니다:
+
+```plaintext
+https://{vicollo_base_url}/room/join/{roomCode}
+```
+
+이 URL은 로그인한 사용자만 접근할 수 있습니다.
+로그인 절차를 생략하려면, 사용자에게 전달할 비디오룸 URL에 key 쿼리 파라미터를 추가해야 합니다.
+이 key 값은 Vicollo App Server의 “Login Member” API 응답을 Base64로 인코딩하여 얻습니다.
+
+다음 API를 참고해 멤버 자격 증명을 발급하거나, key 쿼리 파라미터가 포함된 embed URL을 직접 생성할 수 있습니다.
+
+* 멤버 로그인 ([Swagger UI](https://portal-sandbox.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server#/Vicollo%20App%20Members/VASAMembersController_loginMember) / [API 문서](https://portal-sandbox.flipflop.cloud/open-api/ko/docs/vicollo-app-server#tag/%EB%B9%84%EC%BD%9C%EB%A1%9C-%EC%95%B1-%EB%A9%A4%EB%B2%84/operation/VASAMembersController_loginMember))
+* 멤버를 위한 비디오룸 접속 URL 생성 ([Swagger UI](https://portal-sandbox.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server#/Vicollo%20App%20Video-Rooms%20/VASAVideoRoomsController_getVideoRoomEmbedUrl) / [API 문서](https://portal-sandbox.flipflop.cloud/open-api/ko/docs/vicollo-app-server#tag/%EB%B9%84%EC%BD%9C%EB%A1%9C-%EC%95%B1%EC%9D%98-%EB%B9%84%EB%94%94%EC%98%A4%EB%A3%B8-%EA%B4%80%EB%A0%A8/operation/VASAVideoRoomsController_getVideoRoomEmbedUrl))
+
+멤버를 위한 비디오룸 접속 URL 생성은 다음 값을 기반으로 URL을 생성합니다:
+
+* **appId**: 귀하의 앱 ID
+* **roomUUID**: 비디오룸의 고유 UUID
+* **userAuthKey**: Login Member API 응답 값을 Base64로 인코딩한 문자열
+
+최종적으로 생성되는 URL 형식은 다음과 같습니다:
+
+https://sandbox.vicollo.live/vicollo-apps/${appID}/rooms/join/${roomUUID}?key=${userAuthKey}

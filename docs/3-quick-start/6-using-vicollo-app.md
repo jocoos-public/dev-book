@@ -55,7 +55,9 @@ Once approved:
 4. Fill in the required fields.
 
 After creation, you can access your app from the app list or directly at:
-`https://vicollo.live/apps/{appId}`
+
+* When using sandbox environment: `https://sandbox.vicollo.live/apps/{appId}`
+* When using production envirionment: `https://vicollo.live/apps/{appId}`
 
 An `admin` member will be automatically created. The password you entered during app setup will be the admin's password. Log in using:
 
@@ -239,8 +241,8 @@ You can create and manage members, rooms, and more using the Vicollo App Server 
 
 API Reference:
 
-* Documentation: [https://portal.flipflop.cloud/open-api/en/docs/vicollo-app-server](https://portal.flipflop.cloud/open-api/en/docs/vicollo-app-server)
-* Swagger UI: [https://portal.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server](https://portal.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server)
+* Documentation: [https://portal-sandbox.flipflop.cloud/open-api/en/docs/vicollo-app-server](https://portal-sandbox.flipflop.cloud/open-api/en/docs/vicollo-app-server)
+* Swagger UI: [https://portal-sandbox.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server](https://portal-sandbox.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server)
 
 You will need the API key and secret that were provided when your app was created. If you no longer have them, contact us.
 
@@ -255,3 +257,30 @@ Authorization: Basic {base64 encoded string of 'apiKey:apiSecret'}
 Do not expose your API key or secret in frontend code.
 
 The API acts on behalf of the entire app, so ensure proper security checks when forwarding requests from your own users.
+
+### Generating VideoRoom URL for members when not using Vicollo UI
+
+The URL for the created video-room follows this format:
+
+```plaintext
+https://{vicollo_base_url}/room/join/{roomUuid}
+```
+
+And is accessible only to logged-in users. To bypass the login process for your users, generate a key that will be passed as a query parameter in the video-room URL. This key is obtained by encoding the response from the "Login Member" API call of the Vicollo app server into Base64.
+
+Refer to the following APIs for issuing credentials for member or creating the embed URL with the key query param that can be used right away
+
+* Login Member ([Swagger UI](https://portal-sandbox.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server#/Vicollo%20App%20Members/VASAMembersController_loginMember) / [API Documentation](https://portal-sandbox.flipflop.cloud/open-api/en/docs/vicollo-app-server#tag/Vicollo-App-Members/operation/VASAMembersController_loginMember))
+* Create an Embed URL for member ([Swagger UI](https://portal-sandbox.flipflop.cloud/open-api/en/swagger-ui/vicollo-app-server#/Vicollo%20App%20Video-Rooms%20/VASAVideoRoomsController_getVideoRoomEmbedUrl) / [API Documentation](https://portal-sandbox.flipflop.cloud/open-api/en/docs/vicollo-app-server#tag/Vicollo-App-Video-Rooms/operation/VASAVideoRoomsController_getVideoRoomEmbedUrl))
+
+The **Create an Embed URL for Member** API generates a URL using the following values:
+
+* **appId**: The ID of your app.
+* **roomUUID**: The unique code (UUID) for the video-room.
+* **userAuthKey**: A Base64-encoded string of the response from the member login API.
+
+The resulting URL format is as follows:
+
+```plaintext
+https://sandbox.vicollo.live/vicollo-apps/${appID}/rooms/join/${roomUUID}?key=${userAuthKey}
+```
