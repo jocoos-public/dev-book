@@ -11,7 +11,7 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/dev-book/ko/assets/css/styles.1dcc7c75.css">
-<script src="/dev-book/ko/assets/js/runtime~main.70b2771f.js" defer="defer"></script>
+<script src="/dev-book/ko/assets/js/runtime~main.d6d05996.js" defer="defer"></script>
 <script src="/dev-book/ko/assets/js/main.0cdd8538.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -452,8 +452,6 @@ Group 변경 시에는 아래 사항을 함께 점검하는 것을 권장합니�
 URL 쿼리 파라미터 <code>key</code> 값(= <code>userAuthKey</code>)은 서버 API를 통해 직접 생성하여 위 형식에 맞게 URL을 구성할 수도 있습니다.</p>
 <p>하지만 위 URL 형식을 충족하는 URL을 생성해주는 <strong>Helper API</strong>도 제공되므로, 이를 사용하면 보다 편리하게 Embed URL을 생성할 수 있습니다.</p>
 <hr>
-<p>아래는 주신 <strong>7장/7.1절</strong>을 문장 흐름, 용어, 강조 포인트를 통일해서 가다듬은 버전입니다. (링크/인증 헤더 표기, 미완 문장도 정리했습니다.)</p>
-<hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-vicollo-app-연동-가이드-paas-형태로-활용-시">7. Vicollo App 연동 가이드 (PaaS 형태로 활용 시)<a href="#7-vicollo-app-연동-가이드-paas-형태로-활용-시" class="hash-link" aria-label="7. Vicollo App 연동 가이드 (PaaS 형태로 활용 시)에 대한 직접 링크" title="7. Vicollo App 연동 가이드 (PaaS 형태로 활용 시)에 대한 직접 링크" translate="no">​</a></h2>
 <p>여러분의 서비스와 <strong>Vicollo App</strong>을 연동하는 작업은 <strong>PaaS 형태</strong>로 활용할 때 필요한 절차이며, 이 연동은 <strong>Vicollo App Server API</strong>를 통해 수행합니다.
 Vicollo App Server API는 <strong>HTTP 기반 REST API</strong> 형태로 제공되며, API 사용을 위한 API 문서와 테스트 도구(Swagger UI)가 함께 제공됩니다.</p>
@@ -471,7 +469,7 @@ Vicollo App Server API는 <strong>HTTP 기반 REST API</strong> 형태로 제공
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="71-member-연동하기">7.1. Member 연동하기<a href="#71-member-연동하기" class="hash-link" aria-label="7.1. Member 연동하기에 대한 직접 링크" title="7.1. Member 연동하기에 대한 직접 링크" translate="no">​</a></h3>
 <p>여러분 서비스의 사용자가 Vicollo App을 사용하는 과정에서 다음과 같은 요구가 있다면 <strong>Member 연동</strong>이 필요합니다.</p>
 <ul>
-<li class="">사용자별 **활동 이력(Session/녹화/참여 기록 등)**을 서비스 기준으로 추적해야 하는 경우</li>
+<li class="">사용자별 **활동 이 력(Session/녹화/참여 기록 등)**을 서비스 기준으로 추적해야 하는 경우</li>
 <li class="">서비스의 사용자 권한/정책과 Vicollo의 기능(접근 제어 등)을 <strong>일관되게 관리</strong>해야 하는 경우</li>
 </ul>
 <p>반대로, 사용자 연동이 반드시 필요하지 않다면 <strong>임의의 Member를 생성</strong>해 두고, 여러분 서비스의 사용자가 해당 Member로 Vicollo 기능을 사용하도록 구성할 수도 있습니다(단, 사용자별 추적/권한 분리는 제한될 수 있습니다).</p>
